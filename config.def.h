@@ -1,5 +1,5 @@
 /* macro for conveniently specifying pathu and pathc below */
-#define PATH(name)                      "<path to the folder containing block scripts>/"name
+#define PATH(name)                      "/home/bodleum/.local/bin/statusbar/"name
 
 /* buffer size for capturing output of the programs used for updating blocks */
 #define CMDOUTLENGTH                    50
@@ -17,7 +17,7 @@
 
 /* delimiter specified as an array of characters
  * (don't remove DELIMITERENDCHAR at the end) */
-static const char delimiter[] = { ' ', '|', ' ', DELIMITERENDCHAR };
+static const char delimiter[] = { ' ', DELIMITERENDCHAR };
 
 #include "block.h"
 
@@ -43,9 +43,17 @@ static const char delimiter[] = { ' ', '|', ' ', DELIMITERENDCHAR };
 
 static Block blocks[] = {
 /*      pathu                           pathc                           interval        signal */
-        { PATH("calendar.sh"),          NULL,                           30,             1},
-        { PATH("volume.pipewire.sh"),            PATH("volume_button.sh"),       0,              2},
-        { PATH("cpu_temp.sh"),          PATH("cpu_temp_button.sh"),     1,              4},
-        { PATH("battery.sh"),           PATH("battery_button.sh"),      30,             3},
+        { PATH("music.sb.sh"),          PATH("music.button.sb.sh"),     0,              9 },
+        { PATH("updates.sb.sh"),        PATH("updates.button.sb.sh"),   300,            4 },
+        { PATH("email.sb.sh"),          PATH("email.button.sb.sh"),     1,              3 },
+        { PATH("network.sb.sh"),        PATH("network.button.sb.sh"),   5,              2 },
+        { PATH("volume.sb.sh"),         PATH("volume.button.sb.sh"),    0,              1 },
+        { PATH("battery.sb.sh"),        NULL,                           5,              NULL },
+        { PATH("clock.sb.sh"),          PATH("clock.button.sb.sh"),     1,              NULL },
+
+        //{ PATH("calendar.sh"),          NULL,                           30,             1},
+        //{ PATH("volume.pipewire.sh"),   PATH("volume_button.sh"),       0,              2},
+        //{ PATH("cpu_temp.sh"),          PATH("cpu_temp_button.sh"),     1,              4},
+        //{ PATH("battery.sh"),           PATH("battery_button.sh"),      30,             3},
         { NULL } /* just to mark the end of the array */
 };
